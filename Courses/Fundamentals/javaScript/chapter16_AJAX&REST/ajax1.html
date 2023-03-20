@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX use</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        const urlService = 'https://jsonplaceholder.typicode.com/users';
+        const request = new XMLHttpRequest();
+        request.open('POST', urlService);
+        request.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+        request.onload = function () {
+            console.log(`Answer: estado=${this.status} description estado=${this.statusText} content=${this.responseText}`);
+        };
+        request.onerror = function(error) {
+            console.error(`ERROR: ${error}`);
+        };
+        console.log('Request Complete');
+        const newUser = {
+
+            "name": "Glenna Reichert",
+            "username": "Delphine",
+            "email": "Chaim_McDermott@dana.io",
+            
+        };
+        request.send(JSON.stringify(newUser));
+        console.log('Send request');
+        
+    </script>
+    
+    
+</body>
+</html>

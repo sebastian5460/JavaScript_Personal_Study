@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager</title>
+</head>
+<body>
+
+    <style>
+
+        .colorPicker {
+
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+            
+        }
+
+        
+    </style>
+    
+    <div class="colorPicker" id="red" style="background-color: red;" onclick="console.log(this.style.backgroundColor)"></div>
+
+    <div class="colorPicker" id="blue" style="background-color: blue;" onclick="tellMeColor()"></div>
+
+    <script>
+
+        function tellMeColor() {
+
+            'use strict';
+            document.getElementById('blue').addEventListener('click', function(){
+                console.log(this.style.backgroundColor);
+            })
+            
+            
+        }
+
+        
+    </script>
+    
+    
+</body>
+</html>

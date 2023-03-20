@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Use 2</title>
+</head>
+<body>
+
+    <p id="output"></p>
+    
+    <script>
+
+        'use strict'
+
+        const json = {
+                "name": "Juan",
+                "surName": "Pérez",
+                "gender": "Male",
+                "alive": true,
+                "age": 27,
+                "address": {
+                "street": "Pasarratps 18",
+                "Population": 13500,
+                "Province": "Barcelona",
+                "CP": "08023"
+                },
+
+                "telephoneNumber": [
+                {
+                    "type": "house",
+                    "number": "0000000"
+                },
+                {
+                    "type": "mobile",
+                    "number": "1111111"
+                }
+                ],
+
+                "titles": ["Sr.", "Dr."]
+        }
+
+        const file = 'json.json';
+        const request = new XMLHttpRequest();
+        request.overrideMimeType("application/json");
+        request.open("GET", file, true);
+        request.onload = function () {
+            const data = JSON.parse(this.responseText);
+            let telephones = '';
+            function processTelephone (element) {
+                for(let key in element){
+                    telephones += (`${key}: ${element[key]}<br/>`);
+                }
+            }
+            data.telephoneNumber.forEach(processTelephone);
+            let HTML = `<div><h1>${data.name} ${data.surName}</h1>
+                <p>titles: ${data.titles.toString()}<br/>gender: ${data.gender} </p>
+                <h2>Address</h2>
+                <p>${data.address.street}<br/> ${data.address.CP} ${data.address.Population} (${data.address.Province}) </p>
+                <h2>Telephone Numbers</h2>
+                <p>${telephones}</p></div>`;
+            showResult(HTML);
+        }
+        request.onerror = (error) => showResult(`<pre>ERROR: ${error}</pre>`);
+
+        request.send();
+        const showResult = (text) => document.getElementById('output').innerHTML = text;
+
+
+        
+    </script>
+    
+    
+    
+</body>
+</html>

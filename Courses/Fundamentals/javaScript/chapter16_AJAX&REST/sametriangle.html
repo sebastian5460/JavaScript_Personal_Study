@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <span id="output"></span>
+
+    <script type="text/javascript">
+
+        function printTriangle(size, character){
+
+            for(let i = 0; i < size; i++){
+
+                for(let j=0; j < i; j++){
+
+                    document.getElementById("output").innerHTML = character
+                    
+                }
+                console.log("\n")
+            }
+
+
+
+        }
+
+        printTriangle(5,"$")
+
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Parameter's Use</title>
+    </head>
+
+    <body>
+
+        <p id="output"></p>
+        
+        <script type="text/javascript">
+
+            function howManyDays(year, month, day, eventName) {
+                const today = new Date();
+                const milSecADay = 1000 * 60 * 60 * 24; // mili seconds at day
+                today.setHours(0, 0, 0, 0);
+                const eventDate = new Date(year, month - 1, day);
+                const hourDifference = Math.abs(eventDate.getTimezoneOffset() / 60) - Math.abs(today.getTimezoneOffset() / 60);
+
+                today.setHours(today.getHours() - hourDifference);
+
+                if (eventDate > today) {
+
+                    return `${(eventDate.getTime() - today.getTime()) / milSecADay} days left for the ${eventName}`;
+                } else {
+                    return 'The date has passed';
+                }
+            }
+
+            let suma = function(x,y) {
+                return x + y;
+            }
+
+
+            console.log('La suma de x + y es : '+suma(37,25));
+
+            document.getElementById('output').innerHTML = howManyDays(2023, 01, 05, 'Christmas');
+
+        </script>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Spaces</title>
+</head>
+<body>
+    
+    <form>
+        <div style="float: left;">
+
+            <textarea name=" " id="text1" cols="50" rows="20" float="left"></textarea>
+
+            <button id="button1" type="button" onclick="deleteSpaces()" >DeleteSpaces</button>
+
+            <button id="button2" type="button" onclick="deleteAll()" >DeleteAll</button>
+
+            <textarea name="" id="text2" cols="50" rows="20" float="left"></textarea>
+
+        </div>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+
+        let text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nam accusantium vel error libero inventore provident quasi, quae earum, necessitatibus, vero aperiam molestias nemo itaque delectus dolore voluptatum porro incidunt quisquam! Suscipit, odit iusto. Quisquam accusamus ipsam nisi repellat quam architecto illo nulla reprehenderit maxime. Veniam pariatur saepe quas consectetur.';
+
+        document.getElementById('text1').value = text;
+
+        function deleteSpaces() {
+
+            text = document.getElementById('text1').value;
+            let re = /\s{2,}/g;
+            // let pattern = /\s+/g;
+            let textNoSpaces = text.replace(re, ' ');
+            document.getElementById('text2').innerHTML = textNoSpaces;
+
+        }
+
+
+        function deleteAll() {
+
+            document.getElementById('text1').value = ' ';
+            document.getElementById('text2').value = ' ';
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

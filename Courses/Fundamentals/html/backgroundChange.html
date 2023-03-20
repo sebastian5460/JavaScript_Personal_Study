@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="description" content="prove">
+        <title>Prove</title>
+        <style type="text/css">
+            .mañana {
+                background-color: #a0eef0;
+                color: #971d78;
+            }
+            .tarde {
+                background-color: #47b8fe;
+                color: #dcfe24;
+            }
+
+            .noche {
+                background-color: #fa8f6f;
+                color: #971d78;
+            }
+
+            .madrugada{
+                background-color: #a0ad2c;
+                color: #ffffff;
+
+            }
+
+                            
+        </style>
+
+    </head>
+    
+    <body>
+        <p id="output"></p>
+        <script type="text/javascript">
+
+            //hora del sistema
+            const hora= new Date().getHours();
+            let mensaje;
+            let nombreEstilo;
+
+            if(hora < 12) {
+                mensaje = 'Buenos días';
+                nombreEstilo = 'mañana';
+            } else if (hora < 18) {
+                mensaje = 'Buenas tardes';
+                nombreEstilo = 'tarde';
+            } else if (hora < 24) {
+                mensaje = 'Buenas noches';
+                nombreEstilo = 'noche';
+            } else {
+                mensaje = 'Hola';
+                nombreEstilo = 'madrugada';
+            }
+
+            document.getElementById('output').innerHTML = mensaje;
+            document.body.className = nombreEstilo;
+
+        </script>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

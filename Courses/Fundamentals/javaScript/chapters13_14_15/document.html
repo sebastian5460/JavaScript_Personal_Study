@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+
+    <style>
+        .colorPicker {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+        }
+            
+    </style>
+    
+    <div class="colorPicker" id="red" style="background-color: red;"></div>
+    <div class="colorPicker" id="blue" style="background-color: blue;"></div>
+
+    <script>
+
+
+        
+    function foo() {return console.log('foo')};
+
+    
+    document.getElementById('red').addEventListener('click', event => foo())
+    document.getElementById('blue').addEventListener('click', function() {
+        foo()+console.log(this.style.backgroundColor);
+    })
+    
+    </script>
+    
+    
+</body>
+</html>

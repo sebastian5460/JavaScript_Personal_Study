@@ -1,0 +1,23 @@
+
+{
+    "name": "Juan",
+    "surName": "Márquez",
+    "gender": "Male",
+    "alive": true,
+    "age": 27,
+
+    "adrress": {
+        "street": "Buenos ratos 18",
+        "population": "Catelldefels",
+        "province": "Barcelona",
+        "CP": "08860"
+    },
+
+    "telephoneNumbers": [
+        {"type": "house", "number": "0000000"},
+        {"type": "movil", "number": "1111111"}
+    ],
+
+    "titles": ["sr.", "dr."]
+
+}

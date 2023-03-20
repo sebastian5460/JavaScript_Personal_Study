@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split example</title>
+</head>
+<body>
+    
+    <!-- input box -->
+    <form>
+        <label for="text1">Write a phrase</label>
+        <input type="text" name="text1" id="text1" oninput="writePhrase()">
+    </form>
+
+    <p id="output"></p>
+    <p id="output1"></p>
+
+    <script>
+
+        /*
+        function writePhrase() {
+
+            let variable = 'This is my string use'
+            let separator = variable.split(' ');
+    
+            console.log(separator);
+            document.write('The insert string is: ' + '"' + variable +'"' + '<br>');
+    
+            for(let i=0; i < separator.length; i++) {
+    
+                document.write((i+1)+': '+separator[i] + '<br>');
+    
+            }
+
+        } */
+
+        function writePhrase() {
+
+            let variable = document.getElementById('text1').value;
+            // Split method takes its parameter as identifier in a string, and every time finds the parameter in the string, constructs an array with every iteraction and save it in the array
+            let separator = variable.split('');
+            let writtenText = '';
+    
+            console.log(separator);
+            document.getElementById('output').innerHTML = ('The inserted string is: ' + '"' + variable +'"' + '<br>');
+    
+            for(let i=0; i < separator.length; i++) {
+
+                writtenText += ((i+1)+': '+separator[i] + '<br>')
+    
+                // document.getElementById('output1').innerHTML =((i+1)+': '+separator[i] + '<br>');
+
+                document.getElementById('output1').innerHTML = writtenText;
+                console.log(writtenText);
+    
+            }
+
+        }
+
+
+
+    </script>
+
+
+    
+    
+    
+</body>
+</html>

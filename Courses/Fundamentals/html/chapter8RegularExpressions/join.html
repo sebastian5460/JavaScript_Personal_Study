@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset:utd-8">
+    <title>join() use</title>
+</head>
+<body>
+
+    <form>
+        <label for="text">Type the registration:</label>
+        <input type="text" id="text1">
+        <button type="button" id="button1" onclick="send()">Send Message</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+        function send() {
+            let registrationCod = document.getElementById("text1").value;
+            let patterNubers = /\d+/g;
+            let numbers = registrationCod.match(patterNubers);
+            let correctRegistration = numbers.join('-');
+            document.getElementById('output').innerHTML = correctRegistration;
+        }
+    </script>
+    
+</body>
+</html>

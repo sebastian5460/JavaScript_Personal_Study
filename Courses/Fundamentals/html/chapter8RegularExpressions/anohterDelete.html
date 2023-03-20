@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delte Specail Chars</title>
+</head>
+<body>
+
+    <ul>
+        <div class="menu">
+            <li>Menu</li>
+            <li>Programas</li>
+            <li>Recipientes</li>
+            <li>Comprar</li>
+            <li>Vender</li>
+            <li>Comprador</li>
+        </div>
+    </ul>
+
+    <style>
+        .menu {
+            font-size: large;
+            
+        }
+    </style>
+
+    <form>
+
+        
+        <textarea name="Write" id="text1" cols="50" rows="30"></textarea>
+        <button type="button" id="button1" onclick="deleteSpecial()">DeleteSpecialChars</button>
+        <button type="button" id="button1" onclick="deleteAll()">DeleteAll</button>
+        <textarea name="Write2" id="text2" cols="50" rows="30"></textarea>
+
+        
+        
+        <script>
+            
+            function deleteSpecial() {
+                
+                let text = document.getElementById('text1').value;
+                let pattern = /[!#$%&]/g;
+                let newText = text.replace(pattern, '');
+                document.getElementById('text2').innerHTML = newText;
+            }
+
+            function deleteAll() {
+
+                document.getElementById('text1').replace(' ');
+                document.getElementById('text2').replace(' ');
+
+            }
+
+
+        </script>
+        
+
+    </form>
+    
+</body>
+</html>

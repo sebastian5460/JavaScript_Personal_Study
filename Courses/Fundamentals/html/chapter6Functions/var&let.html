@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="content-type" content="text/html; charset:utf-8">
+    <title>var&let Use</title>
+
+    <body>
+        
+        <p id="output"></p>
+        <p id="output2"></p>
+
+        <script id="text/javascript">
+
+            function mediaConVar1(numbers){
+
+                var suma;
+                console.log(`media = ${media}`);
+                for(var indice = 0; indice < numbers.length; indice += 1){
+
+                    suma += numbers[indice];
+                }
+
+                var media = suma / numbers.length;
+                return `Los ${numbers.length} números tienen suma = ${suma} y media = ${media}. El índice es ${indice}.`;
+
+
+            }
+
+                function mediaConLet(numbers){
+
+                    let suma = 0;
+                    // Si colocamos console.log(`media = ${media}`); en este espacio aparecé un error ya que no podemos acceder a la variable antes de inicializarla, en cambio estando en la línea 38, después de haberla definido, el resultado aparecerá en consola.
+                    for(let indice = 0; indice < numbers.length; indice += 1){
+
+                        suma += numbers[indice];
+                    }
+
+                    let media = suma / numbers.length;
+                    console.log(`media = ${media}`);
+                    return `Los ${numbers.length} números tienen suma = ${suma} y media = ${media}.`;
+
+
+                }
+
+            document.getElementById('output').innerHTML = mediaConVar1([84, 36, 61, 67, 22, 20, 22, 16, 79, 54]);
+            document.getElementById('output2').innerHTML = mediaConLet([84, 36, 61, 67, 22, 20, 22, 16, 79, 54]);
+
+        </script>
+
+
+    </body>
+</html>

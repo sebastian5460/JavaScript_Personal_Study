@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words Frequency</title>
+</head>
+<body>
+    
+    <textarea name="text1" id="text1" cols="100" rows="20"></textarea>
+    <button type="button" onclick="wordsFrequency()" id="button1">Words Frequency</button>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+
+        function wordsFrequency() {
+
+            const words = document.getElementById('text1').value.split(/[\s\.,;:!?]+/).filter(function (word)
+            
+            {return !!word; });
+
+            const count = {};
+
+            count["TOTAL"] = words.length;
+
+            
+
+            for (let i = 0; i < words.length; i++) {
+
+                const word = words[i];
+
+                if (count[word]) {
+
+                    count[word] += 1;
+                    
+                } else {
+
+                    count[word] = 1;
+                    
+                }
+                                
+            }
+            
+            let key = '';
+            let shownText = '';
+
+            for (key in count) {
+
+                shownText += (`${key}: ${count[key]}<br>`);
+                
+            }
+            document.getElementById('output').innerHTML = shownText;
+            
+        }
+        
+        
+    </script>
+    
+    
+</body>
+</html>

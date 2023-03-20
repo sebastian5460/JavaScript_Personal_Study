@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset:utf-8">
+        <title>Visa Form's</title>
+
+    </head>
+
+    <body>
+        
+        <form id="form">
+
+            <!-- Generamos una entrada de tipo fecha para compararla con otra -->
+            <input type="date" id="dates" class="hand">
+
+            <!-- Generamos botón de evento que nos permitirá calcular la diferencia de días con js -->
+
+            <button type="button" onclick="howManyDays()" id="button1" class="hand">Send</button>
+            
+
+        </form>
+
+        <ul>
+            
+            <li class="hand">Perro</li>
+            <li class="hand">Gato</li>
+            <li class="hand">Pajaro</li>
+        </ul>
+
+        <style>
+
+            li {
+                display: inline-flex;
+                justify-content: center;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+
+            .hand {
+                cursor: pointer;
+            }
+
+        </style>
+
+        <!-- Etiqueta que usará js para generar en pantalla el resultado de la operación -->
+        <p id="output"></p>
+        <p id="output1"></p>
+        <p id="output2"></p>
+
+
+        <script>
+
+            let today = new Date();
+
+            function howManyDays() {
+                
+                let eventDate = new Date(document.getElementById('dates').value);
+                console.log(eventDate);
+                eventDate.setHours(0, 0, 0, 0);
+                document.getElementById('output').innerHTML = eventDate;
+                const miliSecAtDay = 1000 * 60 * 60 * 24;
+                today.setHours(0, 0, 0, 0);
+                const hourDifference = Math.abs(eventDate.getTimezoneOffset()/60) - Math.abs(today.getTimezoneOffset()/60);
+                today.setHours(today.getHours() - hourDifference);
+
+                document.getElementById('output1').innerHTML = eventDate.getTimezoneOffset();
+                document.getElementById('output2').innerHTML = today.getTimezoneOffset();
+
+                if (eventDate > today) {
+                    document.getElementById('output').innerHTML = `Faltan ${(eventDate.getTime() - today.getTime() ) / miliSecAtDay} `+"d&iacuteas";
+                } else {
+                    document.getElementById('output').innerHTML = `La fecha ya ha pasado`
+                }
+
+            }
+
+            function configMouse(pointer){
+
+                document.body.style.cursor = pointer;
+            }
+
+            document.getElementById("button1").addEventListener('mouseover',function(){configMouse('pointer');});
+
+            document.getElementById("button1").addEventListener('mouseout',function() {configMouse('auto');});
+
+            
+            
+
+
+            let year = today.getFullYear();
+            let month = today.getMonth() +1;
+            let day = today.getDate();
+            let currentDate = `${year}-${month}-${day}-`;
+            document.getElementById('dates').value = currentDate;
+
+
+        </script>
+
+    </body>
+
+</html>

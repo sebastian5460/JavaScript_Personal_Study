@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free style</title>
+</head>
+<body>
+    
+    <label for="text1">Words:</label>
+    <div class="box">
+        
+        <textarea name="text1" id="text1" cols="50" rows="30" title="Words"></textarea>
+    </div>
+    
+    
+    <label for="text2">Prefixes:</label>
+
+    <div class="box">
+
+        <textarea name="text2" id="text2" cols="50" rows="30" title="Prefixes"></textarea>
+
+    </div>
+
+    <style>
+        .box{
+
+            display: inline-flex;
+
+        }
+    </style>
+
+    <button type="button" id="button1" onclick="choosePrefix()">Convert</button>
+    
+    <p id="output"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+
+    <script type="text/javascript">
+
+        // This code has several mistakes that need to be fixed
+        // The code determines the word with the longest prefix
+        // These are the prefixes and letter that was used to.
+
+        /* Prefixes: 
+        Ante-:antebrazo, antecámara, antediluviano, antemano
+        Pre-: prefijar, preconcebir, prejuicio, preestreno
+        Tras- / trans-: trastienda, trasandino, transatlántico, traspasar
+        Retro-: retroalimentación, retropropulsión, retroceder, retrovisor
+        Pos- / post-: poslaboral, posverdad, postbélico, postmoderno
+        Sobre-: sobresaliente, sobreactuar, sobreagudo, sobrevolar
+        Supra-: supraclavicular, suprarrealista, suprarrenal, supranacional
+        Entre-: entreabierto, entreacto, entrecalle, entrecejo
+        Infra-: infraestructura, infrahumano, infravivienda, infravalorado
+        Sub-: subdesarrollado, subcontratado, subacuático, subterráneo
+        Endo-: endocéntrico, endogamia, endocardio, endoscopia
+        Extra-: extramuros, extraordinario, extrajudicial, extracurricular
+        Circun-: circunnavegación, circunvalación, circunscrito, circunsolar
+        Ultra-: ultramarino, ultraterrenal, ultravioleta, ultrasonido
+        Ex-: exhumación, excomulgar, excarcelar, exportación
+        Tele-: teletrabajo, telefónico, televisar, telemático
+        Mericar-: Mericardionero*/
+
+        /* Strings:
+        antebrazo, antecámara, antediluviano, antemano
+        prefijar, preconcebir, prejuicio, preestreno
+        trastienda, trasandino, transatlántico, traspasar
+        retroalimentación, retropropulsión, retroceder, retrovisor
+        poslaboral, posverdad, postbélico, postmoderno
+        sobresaliente, sobreactuar, sobreagudo, sobrevolar
+        supraclavicular, suprarrealista, suprarrenal, supranacional
+        entreabierto, entreacto, entrecalle, entrecejo
+        infraestructura, infrahumano, infravivienda, infravalorado
+        subdesarrollado, subcontratado, subacuático, subterráneo
+        endocéntrico, endogamia, endocardio, endoscopia
+        extramuros, extraordinario, extrajudicial, extracurricular
+        circunnavegación, circunvalación, circunscrito, circunsolar
+        ultramarino, ultraterrenal, ultravioleta, ultrasonido
+        exhumación, excomulgar, excarcelar, exportación
+        teletrabajo, telefónico, televisar, telemático, Mericardionero */
+
+
+
+
+        function choosePrefix() {
+
+            // Pattern to determine the prefixes in the given text above
+            let pattern = /[a-z]+[-]/gi;
+
+            // Obtain the string wrote it in the textare 2
+            const prefixIn = document.getElementById('text2').value;
+            let prefixBefore = prefixIn.match(pattern);
+            let prefix = [];
+            for(let i = 0; i < prefixBefore.length; i++) {
+
+                prefix[i] = prefixBefore[i].slice(0,-1);
+                                
+            }
+
+
+            let shownPrefix = '';
+
+            prefix.forEach(element => {
+
+                shownPrefix += `${element}<br>`;
+
+            });
+
+            console.log(prefix);
+            // document.getElementById('output2').innerHTML = shownPrefix;
+            
+
+
+            function choose(prefix) {
+    
+                const words = document.getElementById('text1').value.split(/[\s,]/).filter( function (word) 
+                {return !!word; });
+    
+                shownText = '';
+    
+                words.forEach(element => {
+    
+                    shownText += `${element}<br>`
+                    
+                });
+    
+                console.log(words);
+                console.log(`This is from de choose function: ${prefix}`);
+                // document.getElementById('output').innerHTML = shownText;
+    
+                const wordsPrefix = {};
+    
+                for( let i = 0; i < words.length; i++) {
+
+                    // console.log(`Choose: ${i}`);
+    
+    
+                    for(let j = 0; j < prefix.length; j++) {
+    
+                        // console.log(`String: ${i}`);
+                        // console.log(prefix[j+2]);
+    
+                        if( words[i].search(prefix[j]) != -1 ){
+                            
+                            console.log(`False`);
+                            wordsPrefix[words[i]] = prefix[j].length;
+                            
+                        } else {console.log(`True`);}
+                        
+                        
+                    }
+                    
+                    
+                }
+    
+                let key = '';
+                let longestPrefixeWord = '';
+                let longestPrefixes = '';
+    
+                for(key in wordsPrefix) {
+    
+                    if(wordsPrefix[key] > longestPrefixes) {
+    
+                        longestPrefixes = wordsPrefix[key];
+                        longestPrefixeWord = key;
+                        
+                    }
+                    
+                    
+                }
+
+                console.log(longestPrefixes);
+                document.getElementById('output3').innerHTML = longestPrefixes;
+                document.getElementById('output4').innerHTML = longestPrefixeWord;
+    
+    
+                
+            }
+
+            choose(prefix);
+
+
+        }    
+
+        
+
+
+            
+            
+
+
+
+    </script>
+
+    
+</body>
+</html>

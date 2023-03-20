@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Form's Use</title>
+    </head>
+
+    <body>
+        
+        <form id="Form">
+            
+            <input type="date" id="fecha">
+            <button type="button" onclick= "readForm()" id="button">Send</button>
+            <input type="password" id="password">
+            <button type="button" id="button2" onclick="readPassword()">SendPass</button>
+            
+        </form>
+
+        <p id="output"></p>
+        <p id="output2"></p>
+
+        <script>
+
+            function readForm() {
+
+                document.getElementById("output").innerHTML = `La fecha seleccionada es: ${document.getElementById('fecha').value}`;
+
+            }
+
+            const year = day.getFullYear();
+            const month = day.getMonth() +1;
+            const day = day.getDate();
+            const actualDate = `${year}-${month}-${day}`;
+            document.getElementById('fecha').value = actualDate;
+
+            function readPassword() {
+
+                document.getElementById('output2').innerHTML = `El password: ${document.getElementById('password').value}`;
+            }
+
+
+        </script>
+
+    </body>
+
+</html>

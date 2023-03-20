@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associative Array</title>
+</head>
+<body>
+    
+    <p id="output"></p>
+    <p id="output2"></p>
+
+    <script type="text/javascript">
+
+        let navigatorLanguage = window.navigator.language;
+        
+
+        
+        let languages1 = {
+
+            "es-ES": "spanish",
+            "en-US": "American English",
+            "en-UK": "British English"
+            
+        };
+
+        let language2 = languages1[navigatorLanguage] || 'unknown'; //If there is not any associative index in the array "languages1", "language2" takes the value: "unknown"   It is a kind of a conditional 
+
+        document.getElementById('output').innerHTML = navigatorLanguage;
+        document.getElementById('output2').innerHTML = language2;
+
+
+        // let contentLanguages = [];
+        // languages.forEach(element => console.log(element));
+
+        /*
+
+        let language1 = languages1["en-UK"];
+        document.getElementById('output').innerHTML = `The choosen language is: ${language1}`;
+        */
+        
+    </script>
+
+</body>
+</html>

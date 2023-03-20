@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas</title>
+</head>
+<body>
+    
+    <form id="form">
+
+        <select name="arrayYears" id="arrayYears"></select>
+        <button type="button" id="button1" onclick="showInfo()">Show Info</button>
+        
+    </form>
+
+
+    <p id="output"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+    <script type="text/javascript">
+
+        const select = document.getElementById('arrayYears');
+
+        for (let i = 1940; i <= (new Date).getFullYear() + 20; i++){
+
+            select.innerHTML += `<option value = "${i}">${i}</option>`;
+            
+        }
+
+        let year = {
+
+            //refYear:2017
+            refYear: (new Date).getFullYear(),
+            
+            leapYear() {
+
+                let year = this.refYear;
+                if ((year % 400 == 0) || (year % 4 == 0) && year % 100 !=0) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            },
+
+            hollyWeek() {
+
+                let a;
+                let b;
+                let c;
+                let year = this.refYear;
+                let d;
+                let e;
+                let M;
+                let N;
+                let day;
+                let month;
+
+                if (year < 2099) {
+
+                    M = 24;
+                    N = 5;
+                } else if (year < 2199){
+
+                    M = 24;
+                    N = 6;
+
+                } else if (year < 2299){
+
+                    M = 25;
+                    N = 0;
+                    
+                } else if (year < 2399){
+
+                    M = 26;
+                    N = 1;
+                    
+                } else if (year < 2499){
+
+                    M = 25;
+                    N = 1;
+                    
+                }
+
+                a = year % 19;
+                b = year % 4;
+                c = year % 7;
+                d = ((19 * a) + M) % 30;
+                e = ((2 * b) + (4 + c) + (6 * d) + N) % 7;
+
+                if (d + e < 10) {
+
+                    day = d + e + 22;
+                    month = 3;
+                    
+                } else {
+
+                    day = d + e - 9;
+                    month = 4;
+                    
+                }
+
+                if (day == 26 && month == 4){
+                    day = 19;
+                    month = 4;
+                }
+                if (day ==25 & month == 4 && d == 28 && e == 6 && a > 10){
+                    day == 18;
+                    month = 4;
+                }
+                return new Date(year, month - 1, day);
+                
+            },
+
+            christmasDay() {
+                const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday'];
+                let christmas = new Date(this.refYear, 11, 25);
+                return dayName[christmas.getDay()];
+            }
+            
+            
+        }
+
+        function showInfo() {
+
+            year.refYear = document.getElementById('arrayYears').value;
+            let options = {weekday: 'long', year:'numeric', month: 'long', day:'numeric'}
+            document.getElementById('output').innerHTML = `Holly week date: ${year.hollyWeek().toLocaleDateString('it-IT', options)}`;
+            year.leapYear() ?
+            document.getElementById('output2').innerHTML = "The year is leap year." :
+            document.getElementById('output2').innerHTML = "The year is not leap year.";
+            document.getElementById('output3').innerHTML = `Christmas day: ${year.christmasDay()}`;
+            
+        }
+
+        document.getElementById('output').innerHTML = year.hollyWeek();
+        document.getElementById('output2').innerHTML = year.leapYear();
+        document.getElementById('output3').innerHTML = year.christmasDay();
+        
+        
+        
+    </script>
+    
+    
+</body>
+</html>

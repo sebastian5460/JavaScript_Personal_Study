@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify email</title>
+</head>
+<body>
+
+    <form >
+        <label for="text">Email:</label>
+        <input type="text" name="mail" id="email">
+        <button id="button1" onclick="verifyEmail()" type="button">Send</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+
+        function verifyEmail(){
+            
+            
+
+            let email = document.getElementById("email").value;
+            let patternMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+            let verifiedEmail = patternMail.test(email);
+
+            console.log(email);
+            console.log(verifiedEmail);
+
+             
+
+            if(!verifiedEmail) {
+
+                document.getElementById('output').innerHTML = `El email ingresado no es válido.`
+            } else {
+                document.getElementById('output').innerHTML = `email: ${email}`
+            }
+
+            
+           
+
+            
+
+        }
+        
+    </script>
+    
+</body>
+</html>

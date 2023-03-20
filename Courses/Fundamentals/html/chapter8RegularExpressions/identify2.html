@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Identify's Autentication</title>
+</head>
+<body>
+
+    <form>
+
+        <label for="text1">Type your Identify</label>
+        <input type="text" name="text1" id="text1" >
+        <button type="button" id="button1" onclick="check()">Send</button>
+
+        <p id="output"></p>
+        
+
+        <script>
+
+            function check() {
+
+                let idEntered = document.getElementById('text1').value;
+                let pattern = /(\d{10})/g;
+                let IdentifyPattern = idEntered.match(pattern);
+                let string = '';
+
+                for (let i=0; i < IdentifyPattern.length; i++) {
+
+                    if(i==(IdentifyPattern.length)-1){
+
+                        string += '  '+(i+1)+') '+IdentifyPattern[i] + '.';
+                    } else {
+
+                        string += '  '+(i+1)+') '+IdentifyPattern[i] + ',';
+
+                    }
+                    
+
+                }
+
+
+                console.log('matrix: '+IdentifyPattern);
+                console.log(string);
+
+                document.getElementById('output').innerHTML = string;
+
+                // let formIdentify = IdentifyPattern.join('\n');
+                // console.log(formIdentify);
+                // document.getElementById('output').innerHTML = formIdentify;
+
+            }
+
+        </script>
+
+
+    </form>
+
+</body>
+</html>

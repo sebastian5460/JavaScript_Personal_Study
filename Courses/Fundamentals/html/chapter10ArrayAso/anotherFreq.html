@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Example</title>
+</head>
+<body>
+    
+    <textarea name="text1" id="text1" cols="100" rows="30"></textarea>
+    <button type="button" id="button1" onclick="detectFrequency()">Count Frequency</button>
+
+    <p id="output"></p>
+
+    <script type="text/javascript">
+
+        function detectFrequency() {
+
+            const words = document.getElementById('text1').value.split(/[\s\.,;:!?]+/).filter( function(word)
+            
+            {return !!word; });
+
+            const count = {};
+
+            count["TOTAL"] = words.length;
+
+            for ( let i = 0; i < words.length; i++) {
+
+                const word = words[i];
+                
+                if(count[word]) {
+
+                    count[word] += 1;
+
+                } else {
+                    count[word] = 1;
+                }
+                
+            }
+
+            let key = '';
+            let shownText = '';
+
+            for (key in count) {
+
+                shownText += (`${key}: ${count[key]}<br>`) ;
+                // console.log(`${key}: ${count[key]}`)
+                
+            }
+
+            document.getElementById('output').innerHTML = shownText;
+            console.log(shownText);
+                        
+        }
+
+
+        
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset: utf-8">
+        <title>Pattern's Use</title>
+    </head>
+
+    <body>
+        
+        <form>
+            <input type="text" id="text">
+            <button type="button" onclick="containNumbers()" id="button1">Check</button>
+        </form>
+
+        <p id="output"></p>
+
+        <script>
+
+            function containNumbers(){
+
+                let text = document.getElementById('text').value;
+                let patternNumber = /\d+/;
+                let containNumbers = patternNumber.test(text);
+                containNumbers ? document.getElementById('output').innerHTML = "The inserted text contains numbers": 
+                document.getElementById('output').innerHTML = "The inserted text do not contains numbers"
+            }
+        </script>
+
+
+
+    </body>
+</html>

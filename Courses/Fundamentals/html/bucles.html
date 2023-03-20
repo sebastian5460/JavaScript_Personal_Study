@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Bucles</title>
+    </head>
+
+    <body>
+        <ul id="numbers">
+            <li value="1">uno</li>
+            <li value="2">dos</li>
+            <li value="3">tres</li>
+        </ul>
+        <p id="output"></p>
+
+        <script type="text/javascript">
+
+            const listaLI = document.querySelectorAll('#numbers li');
+            const mensaje = `Hay ${listaLI.length} elementos en la lista UL "numeros"`;
+            document.getElementById('output').innerHTML = mensaje;
+            
+
+            /*
+            for(let i=0; i < listaLI.length; i+=1){
+
+                listaLI.item(i).value = i+1;
+
+            } */
+
+            for(let i=0; i < listaLI.length; i+=1) {
+                console.log(`i=${i} value=${i + 1} elemento=${listaLI.item(i)}`);
+                listaLI.item(i).value = i+1;
+            }
+
+
+
+
+        </script>
+    </body>
+</html>

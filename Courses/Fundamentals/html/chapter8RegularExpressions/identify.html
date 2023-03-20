@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identify a Number</title>
+</head>
+<body>
+    
+    <form>
+        <label for="text">Escribe la dirección de la cual quieres extraer el CP:</label>
+        <input type="text" id="text">
+        <button type="button" onclick="extractCP()" id="button1">Extrae CP</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+        function extractCP(){
+
+            let direction = document.getElementById('text').value;
+            let cpPattern = /\d{5}/g;
+            let cp = direction.match(cpPattern);
+
+            console.log(cp);
+
+            if (!cp) {
+                document.getElementById('output').innerHTML = `El texto insetado no contiene CP`;
+            } else {
+                document.getElementById('output').innerHTML = `El CP es: ${cp} `
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>

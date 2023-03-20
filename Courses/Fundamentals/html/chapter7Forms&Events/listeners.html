@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset:utf-8">
+        <title>Listener's Events</title>
+    </head>
+
+    <body>
+
+        <style>
+            .colorPicker {
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin: 5px;
+                border-style: solid;
+            }
+        </style>
+        
+        
+        <div class="colorPicker" id="black" style="background-color: black;"></div>
+        <div class="colorPicker" id="white" style="background-color: white;"></div>
+        <div style="clear:both;"></div>
+        <div id="text" style="width: 400px; height: 400px; border-style:solid; padding: 2em;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aliquid atque fuga? Officia asperiores laudantium quis et debitis quisquam esse excepturi? Velit, nobis explicabo! Eius cupiditate itaque molestiae vero in consectetur nihil ullam eum, ipsum inventore fugiat sint aut reprehenderit voluptates officia voluptatum. Dolorem cum recusandae sit! Ea quidem exercitationem, illo temporibus recusandae consectetur, consequatur laborum harum quas perferendis, voluptatem amet dolores. Nam laudantium alias explicabo iure optio ad libero eos, illum asperiores veniam, fugiat itaque animi consequatur ex quisquam pariatur? Fugiat, tenetur quaerat deleniti porro ipsam voluptatibus omnis possimus accusantium a aspernatur cumque mollitia labore, debitis delectus rem quam?</div>
+
+        <script>
+
+            document.getElementById('black').addEventListener('click', 
+            function(){
+                document.getElementById('text').style.backgroundColor = 'black'; document.getElementById('text').style.color = 'white'; } );
+
+            document.getElementById('white').addEventListener('click' ,
+            function(){
+                document.getElementById('text').style.backgroundColor = 'white';
+                document.getElementById('text').style.color = 'black';
+            });
+
+            function configMouse (cursor) {
+
+                document.body.style.cursor = cursor;
+            }
+
+            document.getElementById('black').addEventListener('mouseover', function() {configMouse('pointer');
+
+            });
+
+            document.getElementById('white').addEventListener('mouseover', function() {
+
+            configMouse('pointer');
+
+            });
+
+            document.getElementById('black').addEventListener('mouseout', function() {
+
+            configMouse('auto');
+            });
+
+            document.getElementById('white').addEventListener('mouseout', function() {
+
+            configMouse('auto');
+            })
+
+
+
+        </script>
+        
+
+
+    </body>
+
+</html>

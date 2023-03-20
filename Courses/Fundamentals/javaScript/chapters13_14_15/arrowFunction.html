@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+
+    <script>
+        
+        const randomNum = Math.floor(Math.random() * 10);
+        console.log(randomNum);
+
+        //Se podrís ejecutar la anterior expresión como una arrow function:
+
+        const randomNum2 = () => Math.floor(Math.random() * 10); //Cuando no se le pasa ningún paramétro a la arrow function, se deben colocar solo los paréntesis ().
+
+        let theNumber = randomNum2();
+        console.log(theNumber);
+
+        //Funciones que necesitan un return:
+
+        // Forma tradicional
+        function whatDay(day){
+            const dayName = ['Domingo', 'Lunes', 'Martees'];
+            return dayName[day];
+        }
+
+        // Con arrow function
+        const whatDayF = g => {
+            const dayName = ['Domingo', 'Lunes', 'Martees'];
+            return dayName[g];
+        }
+
+        let tellmeDay = whatDay(0);
+        console.log(tellmeDay);
+        let tellmeDay2 = whatDayF(1);
+        console.log(tellmeDay2);
+
+        const changeBackgroundColor = color => document.body.style.backgroundColor = color;
+
+        const red = changeBackgroundColor('red');
+
+    </script>
+    
+</body>
+</html>

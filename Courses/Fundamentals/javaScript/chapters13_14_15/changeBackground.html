@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background</title>
+</head>
+<body>
+    
+    <style>
+
+        .colorPicker {
+
+            width: 3em;
+            height: 3em;
+            margin: 1em;
+            float: left;
+            border: 0.2em solid black;
+            
+        }
+
+        .mousePointer {
+            float: inline-block;
+        }
+
+        
+    </style>
+
+    <div>
+        
+        <label for="boxColor" style="font-size: 2em;">Change Box Color:
+
+            <span class="mousePointer">
+                <input  type="color" id="boxColor">
+            </span>
+
+        </label>
+        <span class="mousePointer">
+            <button type="submit" id="button1" onclick="changeColorColor()">Change</button>
+        </span>
+
+    </div>
+
+    <div class="colorPicker" id="red" style="background-color: red;"></div>
+    <div class="colorPicker" id="blue" style="background-color: blue;"></div>
+    <div class="colorPicker" id="yellow" style="background-color: yellow;"></div>
+    <div class="colorPicker" id="green" style="background-color: green;"></div>
+    <div class="colorPicker" id="white" style="background-color: white;"></div>
+
+
+    <div style="clear:both;"></div>
+
+    <div id="text1" style="width: 30em; height: 30em; border: 0.2em solid black;">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quod, voluptatum repudiandae blanditiis voluptates delectus accusamus enim corrupti odio modi aut saepe nihil ea at, architecto provident distinctio labore velit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor amet maiores consectetur ad iste, aut quas voluptates cumque et minus iure voluptatum repellat aliquid aliquam. Quod, illo tempore assumenda iure sit ad nisi, iste excepturi ipsum reiciendis recusandae quia enim incidunt! Molestiae dolores ducimus rerum alias sapiente illum recusandae consequuntur veritatis odit quidem vitae eaque commodi ex corrupti, nihil ab culpa repellat eos maxime deserunt. Obcaecati dignissimos, voluptatibus voluptas sed ab sunt blanditiis, eligendi dolorem aliquam accusamus ea quae id, consequuntur totam corrupti numquam tempore provident iusto dolores? Velit dicta placeat ullam aut sed debitis veniam molestiae dolorum id unde.</p>
+
+    </div>
+
+    <script type="text/javascript">
+
+        let classes = document.getElementsByClassName('colorPicker');
+        let mousePointer = document.getElementsByClassName('mousePointer');
+
+        for(let i = 0; i < mousePointer.length; i++) {
+
+            mousePointer[i].addEventListener('mouseover', changePointer);
+            
+        }
+
+        function changePointer(puntero) {
+
+            this.style.cursor = 'pointer';
+            
+        }
+
+        function changeArticleBackgroundColor() {
+
+            document.getElementById('text1').style.backgroundColor = this.style.backgroundColor;
+            
+        }
+
+        function changeColorColor(){
+
+            document.getElementById('text1').style.backgroundColor = document.getElementById('boxColor').value;
+
+        }
+
+
+
+
+        for(let i = 0; i < classes.length; i++) {
+
+            classes[i].addEventListener('click', changeArticleBackgroundColor);
+            classes[i].addEventListener('mouseover', changePointer);
+            
+        }
+        
+
+    </script>
+    
+    
+</body>
+</html>

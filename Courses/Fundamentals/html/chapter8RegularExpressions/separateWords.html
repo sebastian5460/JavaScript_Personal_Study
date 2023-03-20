@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separate Words</title>
+</head>
+<body>
+    
+    <!-- This code separate a phrase in words-->
+
+
+
+    <form>
+
+        <label for="text1">A phrase</label>
+        <input type="text" name="First" id="text1">
+        <button type="button" id="button1" onclick="findWords()">Send</button>
+
+
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+
+        function findWords() {
+
+            let text = document.getElementById('text1').value; // Get the "text1" value and assign it to "text"
+            let pattern = /\s*[a-zA-Z]+\s*/g;   // pattern to follow
+            let words = text.match(pattern);    // apply the pattern to the text and keep the result in a matrix called "words"
+            console.log(words);                 // print the value of the matrix "words" in the console
+            let writeText = '';                 
+
+            if(words) {
+
+                words.forEach(function (element, index) {
+                    writeText = `${writeText} ${index + 1}: ${element.trim()} <br> `;
+                    console.log(writeText);
+                })
+                document.getElementById('output').innerHTML = `El texto insertado contiene ${words.length} palabras: <br> ${writeText}`;
+            } else {
+                document.getElementById('output').innerHTML = "El texto insertado no contiene palabras";
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+

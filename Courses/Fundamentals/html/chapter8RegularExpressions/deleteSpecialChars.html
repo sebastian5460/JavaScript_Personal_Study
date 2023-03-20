@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Special Chars</title>
+</head>
+<body>
+    
+    <form>
+
+        <textarea name="textArea" id="text1" cols="50" rows="30"></textarea>
+
+        <button id="button1" type="button" onclick="deleteSpecialChars()">DeleteSpecial</button>
+
+        <button id="button2" type="button" onclick="deleteAll()">DeleteAll</button>
+
+        <textarea name="textArea2" id="text2" cols="50" rows="20"></textarea>
+
+
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+
+        let text = 'Pero ¿por qué $ veo todas estas letras%% rar#as?';
+
+        document.getElementById('text1').value = text;
+
+        function deleteSpecialChars() {
+
+            text = document.getElementById('text1').value;
+
+            let patterSpecialChars = /[!#\$%&]/g;
+
+            let specialCharsDelete = text.replace(patterSpecialChars, '');
+
+            document.getElementById('text2').value = specialCharsDelete;
+
+        }
+
+        function deleteAll() {
+
+            document.getElementById('text1').value = ' ';
+            document.getElementById('text2').value = ' ';
+
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
