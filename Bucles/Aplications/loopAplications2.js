@@ -6,23 +6,27 @@
 //Declaramos un matriz cuadrada 4x4
 var matrix = [[1,4,3,5],[1,6,7,2],[3,5,3,9],[7,8,8,2]]
 //Instanciamos la matriz identidad
-var matrix_Iden = [[]]
 
+var matrix_Iden = new Array();
 
 //Imprimimos la matrizz cuadrada 4x4
 matrix.forEach(element => console.log(element))
 
+
+
 //Convertimos la matriz cudradada 4x4 en su equivalente identidad
 for(let i=0; i<matrix.length;i++){
 
+    //Iteramos sobre los elementos de los arraya internos
     for(let j=0; j<matrix[i].length;j++){
 
         //La matriz identidad entrega 1 en la diagonal
         //El resto son cero
         if(i==j){
-            matrix_Iden[i][j] = 1
+            matrix_Iden[i][j].push(1)
         }
-        else matrix_Iden[i][j] = 0
+        else matrix_Iden[i][j].push(0)
+            
         
     }
     
@@ -57,6 +61,30 @@ console.log("------------- Multiplicación -------------")
 //     matrix_Diag = matrix.map(function(element){
 //         matri
 //     })
+    
+// }
+
+
+
+
+
+
+// for(let i=0; i<matrix.length;i++){
+
+//     for(let j=0; j<matrix[i].length;j++){
+
+//         //La matriz identidad entrega 1 en la diagonal
+//         //El resto son cero
+//         if(i==j){
+//             for (let i = 0; i < matrix.length; i++) {
+    
+//                 matrix_Iden[i] = matrix[i].map(element => element *2)
+    
+//             }
+//         }
+//         else matrix_Iden[i][j] = 0
+        
+//     }
     
 // }
 
