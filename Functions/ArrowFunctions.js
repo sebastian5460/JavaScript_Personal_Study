@@ -5,6 +5,7 @@
 
 //Las arrow functions permite crear funciones de manera más abreviada
 //lo cual ahorra tiempo de escritura
+//Las arrow functions son siempre funciones anónimas
 
 //javascript puede tomar las funciones como valores, por ende le puede asignar
 //a una variable el valor retornado por una función
