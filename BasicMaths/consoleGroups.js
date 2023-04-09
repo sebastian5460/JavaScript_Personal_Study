@@ -1,19 +1,25 @@
 
-function calculateSquare(side){
+console.group('circle');
 
-    
-    console.log({
-        "Perimeter": side * 4,
-        "Area": (side * side)
-    })
+function circleArea(){
+
+    const diameter = 40;
+    const radius = diameter/2;
+    const area = Math.PI * (radius ** 2) ;
+
+    return area;
     
 }
 
+const areaD = circleArea();
+console.log(`circle area: ${areaD}`);
+console.log(`pi: ${Math.PI}`);
 
-// let a = console.log("Enter the area of the square: ");
-
-// calculateSquare(a);
+console.groupEnd('circle');
 
 
+function height_Triangle(){
 
-
+    
+    
+}
