@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+
+    <canvas id="game" width="320" height="160" style="border: 1px solid #000000"></canvas>
+
+    <p id="para"></p>
+
+    <script>
+        var lienzo = document.querySelector('canvas');
+        var context = lienzo.getContext('2d');
+        context.fillStyle = "cyan";
+        context.fillRect(20,20,100,50);
+
+        let par = document.querySelector('#para');
+
+        const nombre = __dirname;
+
+        console.log(nombre);
+        
+    </script>
+    
+    
+</body>
+</html>
